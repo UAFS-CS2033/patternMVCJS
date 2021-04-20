@@ -8,12 +8,23 @@ async function getUsers(){
 async function renderTable(users){
     console.log(users);
     let table = document.getElementById('usertable');
-    let row = "<tbody>";
+    let view = "<thead><tr><th>User ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Username</th><th>Password</th></tr></thead><tbody>";
     users.forEach(user => {
-        row = row + "<tr><td>" + user['userID'] + "</td><td>" + user['lastname'] + "</td><td>" + user['firstname'] + "</td></tr>";
+        view = view + "<tr><td>" + user['userID'] + "</td><td>" + user['lastname'] + "</td><td>" + 
+                user['firstname'] + "</td><td>" + user['email'] + "</td><td>"  + user['username']
+                + "</td><td>" + user['passwd'] + "</td></tr>";
     });
-    table.innerHTML=table.innerHTML + row;
+    table.innerHTML=view;
+    let message = document.getElementById('message');
+    message.innerHTML = "Updated: " + new Date();
 
 }
 
-getUsers();
+let button = document.getElementById('refresh');
+button.addEventListener("click",function(event){
+   getUsers();
+});
+
+setInterval(function(){
+   getUsers();
+},10000);
