@@ -6,7 +6,6 @@ async function getUsers(){
 }
 
 async function renderTable(users){
-    console.log(users);
     let table = document.getElementById('usertable');
     let view = "<thead><tr><th>User ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Username</th><th>Password</th></tr></thead><tbody>";
     users.forEach(user => {
@@ -28,3 +27,4 @@ button.addEventListener("click",function(event){
 setInterval(function(){
    getUsers();
 },10000);
+
