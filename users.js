@@ -1,5 +1,5 @@
 async function getUsers(){
-    let response = await fetch('http://localhost/projects/patternMVCJS/api/getUsers.php');
+    let response = await fetch('http://localhost/patternMVCJS/api/getUsers.php');
     let users = await response.json();
     await renderTable(users);
     return users;
