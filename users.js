@@ -1,11 +1,12 @@
-async function getUsers(){
+
+async function userListController(){
     let response = await fetch('http://localhost/patternMVCJS/api/getUsers.php');
     let users = await response.json();
-    await renderTable(users);
+    await userListView(users);
     return users;
 }
 
-async function renderTable(users){
+async function userListView(users){
     let table = document.getElementById('usertable');
     let view = "<thead><tr><th>User ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Username</th><th>Password</th></tr></thead><tbody>";
     users.forEach(user => {
@@ -15,16 +16,16 @@ async function renderTable(users){
     });
     table.innerHTML=view;
     let message = document.getElementById('message');
-    message.innerHTML = "Updated: " + new Date();
+    message.textContent = "Updated: " + new Date();
 
 }
 
 let button = document.getElementById('refresh');
 button.addEventListener("click",function(event){
-   getUsers();
+   userListController();
 });
 
 setInterval(function(){
-   getUsers();
+   userListController();
 },10000);
 
