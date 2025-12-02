@@ -1,2 +1,3 @@
-# patternMVCJS
-Example MVC JavaScript Application
+## Example MVC JavaScript Application
+
+<img src="images/patternMVCJS.png">
