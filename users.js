@@ -29,3 +29,4 @@ setInterval(function(){
    userListController();
 },10000);
 
+userListController();
